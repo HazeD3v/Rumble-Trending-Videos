@@ -13,7 +13,7 @@ soup = BeautifulSoup(page.content, "html.parser")
 videos = soup.find_all('li', class_='video-listing-entry')
 
 #Iterate over each video and store the details
-for k, vid in enumerate(videos):
+for k, vid in reversed(list(enumerate(videos))):
     title = vid.find("h3", class_="video-item--title").text.strip()
     author = vid.find("div", class_="ellipsis-1").text.strip()
     likes = vid.find("div", class_="rumbles-vote-up").text.strip()
